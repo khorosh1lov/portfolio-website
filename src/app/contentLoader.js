@@ -1,114 +1,61 @@
 import API_ENDPOINTS from './apiEndpoints.js';
 import axios from 'axios';
 
-/**
- * Function to get the content of the homepage from the API and add it to the page
- * @function
- * @param {HTMLElement} page - The HTML element to add the content to
- * @param {Function} header - The function to add the header
- * @param {Function} main - The function to add the main content
- */
+function getContent(endpoint, headerTitle, header, main) {
+	axios
+		.get(endpoint)
+		.then((response) => {
+			const data = response.data;
+
+			const h1 = document.createElement('h1');
+
+			if (Array.isArray(data)) {
+				h1.innerHTML = headerTitle;
+				header.appendChild(h1);
+
+				const section = document.createElement('section');
+				section.id = 'posts';
+
+				data.forEach((item) => {
+					const article = document.createElement('article');
+					article.className = 'post';
+
+					const postTitle = document.createElement('h2');
+					postTitle.innerHTML = item.title.rendered;
+					article.appendChild(postTitle);
+
+					const postContent = document.createElement('p');
+					const postText = item.content.rendered.split('.');
+					postContent.innerHTML = postText[0] + '.';
+					article.appendChild(postContent);
+
+					section.appendChild(article);
+				});
+
+				main.appendChild(section);
+			} else {
+				h1.innerHTML = data.title.rendered;
+				header.appendChild(h1);
+				main.innerHTML = data.content.rendered;
+			}
+		})
+		.catch((error) => {
+			console.error('Data receiving error:', error);
+		});
+}
+
+
+
 function getHomeContent(header, main) {
-	axios
-		.get(API_ENDPOINTS.getHomepageContent)
-		.then((response) => {
-			const content = response.data;
-
-			const h1 = document.createElement('h1');
-			h1.innerHTML = content.title.rendered;
-			header.appendChild(h1);
-
-			main.innerHTML = content.content.rendered;
-		})
-		.catch((error) => {
-			console.error('Data receiving error:', error);
-		});
+	getContent(API_ENDPOINTS.getHomepageContent, 'Home', header, main);
 }
 
-/**
- * Function to get the content of the blog page from the API and add it to the page
- * @function
- * @param {HTMLElement} page - The HTML element to add the content to
- * @param {Function} header - The function to add the header
- * @param {Function} main - The function to add the main content
- */
 function getBlogContent(header, main) {
-	axios
-		.get(API_ENDPOINTS.getAllBlogPosts)
-		.then((response) => {
-			const posts = response.data;
-
-			const h1 = document.createElement('h1');
-			h1.innerHTML = 'Blog';
-			header.appendChild(h1);
-
-			const section = document.createElement('section');
-			section.id = 'posts';
-
-			posts.forEach((post) => {
-				const article = document.createElement('article');
-				article.className = 'post';
-
-				const postTitle = document.createElement('h2');
-				postTitle.innerHTML = post.title.rendered;
-				article.appendChild(postTitle);
-
-				const postContent = document.createElement('p');
-				const postText = post.content.rendered.split('.');
-				postContent.innerHTML = postText[0] + '.';
-				article.appendChild(postContent);
-
-				section.appendChild(article);
-			});
-
-			main.appendChild(section);
-		})
-		.catch((error) => {
-			console.error('Data receiving error:', error);
-		});
+	getContent(API_ENDPOINTS.getAllBlogPosts, 'Blog', header, main);
 }
 
-/**
- * Function to get the content of the blog page from the API and add it to the page
- * @function
- * @param {HTMLElement} page - The HTML element to add the content to
- * @param {Function} header - The function to add the header
- * @param {Function} main - The function to add the main content
- */
 function getPortfolioContent(header, main) {
-	axios
-		.get(API_ENDPOINTS.getAllPortfolioPosts)
-		.then((response) => {
-			const posts = response.data;
-
-			const h1 = document.createElement('h1');
-			h1.innerHTML = 'Portfolio';
-			header.appendChild(h1);
-
-			const section = document.createElement('section');
-			section.id = 'posts';
-
-			posts.forEach((post) => {
-				const article = document.createElement('article');
-				article.className = 'post';
-
-				const postTitle = document.createElement('h2');
-				postTitle.innerHTML = post.title.rendered;
-				article.appendChild(postTitle);
-
-				const postContent = document.createElement('p');
-				const postText = post.content.rendered.split('.');
-				postContent.innerHTML = postText[0] + '.';
-				article.appendChild(postContent);
-
-				section.appendChild(article);
-			});
-
-			main.appendChild(section);
-		})
-		.catch((error) => {
-			console.error('Data receiving error:', error);
-		});
+	getContent(API_ENDPOINTS.getAllPortfolioPosts, 'Portfolio', header, main);
 }
 
 export { getHomeContent, getBlogContent, getPortfolioContent };
