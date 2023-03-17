@@ -15,3 +15,8 @@ export function closeMenu() {
 	document.body.style.overflow = 'auto';
 	document.getElementById('menu').className = '';
 }
+
+export function initMenu() {
+	document.querySelector('#menu-opener').addEventListener('click', openMenu);
+	document.querySelector('#menu-closer').addEventListener('click', closeMenu);
+}

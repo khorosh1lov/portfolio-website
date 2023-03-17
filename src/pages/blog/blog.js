@@ -1,9 +1,8 @@
-import { closeMenu, openMenu } from '../../app/components/Menu.js';
-
 import createFooter from '../../app/components/Footer.js';
 import createHeader from '../../app/components/Header.js';
 import createNav from '../../app/components/Nav.js';
 import { getBlogContent } from '../../app/contentLoader.js';
+import { initMenu } from '../../app/components/Menu.js';
 import routes from '../../app/routes.js';
 import styles from '../../styles/styles.scss';
 
@@ -18,5 +17,4 @@ document.body.appendChild(footer);
 const main = document.querySelector('#page');
 getBlogContent(header, main);
 
-document.querySelector('#menu-opener').addEventListener('click', openMenu);
-document.querySelector('#menu-closer').addEventListener('click', closeMenu);
+initMenu();
