@@ -45,6 +45,10 @@ function getContent(endpoint, headerTitle, header, main) {
 }
 
 
+function getSocialLinks(endpoint) {
+	// TODO: Write function to get Social Links from API
+}
+
 
 function getHomeContent(header, main) {
 	getContent(API_ENDPOINTS.getHomepageContent, 'Home', header, main);
