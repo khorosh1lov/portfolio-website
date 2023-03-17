@@ -20,14 +20,14 @@ body {
     background: $background-color;
 }
 
-#page {
+body {
     display: grid;
     grid-template-rows: 10vh 80vh 10vh;
 }
 
 /* Desktop View */
 @media screen and (min-width: $desktop-size) {
-    #page {
+    body {
         grid-template-columns: 1fr 7fr;
         grid-template-rows: 10vh 80vh 10vh;
     }

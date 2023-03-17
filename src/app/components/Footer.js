@@ -3,7 +3,7 @@
  * @function
  * @returns {HTMLElement} - The footer element with the menuOpener child element
  */
-const Footer = () => {
+const createFooter = () => {
 	const footer = document.createElement('footer');
 	const menuOpener = document.createElement('div');
 	menuOpener.id = 'menu-opener';
@@ -13,4 +13,4 @@ const Footer = () => {
 	return footer;
 };
 
-export default Footer;
+export default createFooter;

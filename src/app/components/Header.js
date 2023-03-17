@@ -6,13 +6,9 @@
  * @property {HTMLElement} header - The header element
  * @property {HTMLElement} h1 - The h1 child element of the header element
  */
-const Header = (title) => {
+const createHeader = () => {
 	const header = document.createElement('header');
-	const h1 = document.createElement('h1');
-	h1.append(title);
-	header.appendChild(h1);
-
-	return { header, h1 };
+	return header;
 };
 
-export default Header;
+export default createHeader;

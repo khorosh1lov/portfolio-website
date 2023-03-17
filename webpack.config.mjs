@@ -9,10 +9,14 @@ const __dirname = dirname(__filename);
 
 const config = {
 	mode: 'development',
-	entry: './src/main.js',
+	entry: {
+		index: './src/index.js',
+		blog: './src/pages/blog/blog.js',
+	},
 	output: {
+		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
+		clean: true,
 	},
 	watch: true,
 	module: {
@@ -37,20 +41,28 @@ const config = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
 			filename: 'index.html',
-			inject: 'body',
+			chunks: ['index'],
 		}),
 		new HtmlWebpackPlugin({
-			template: './src/app/pages/blog.html',
+			template: './src/pages/blog/blog.html',
 			filename: 'blog.html',
+			chunks: ['blog'],
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'styles.css',
 		}),
 	],
 	devServer: {
-		contentBase: path.join(__dirname, 'dist'),
-		compress: true,
-		port: 9000,
+		static: {
+			directory: './dist',
+		},
+		historyApiFallback: {
+			rewrites: [
+				{ from: /^\/blog$/, to: '/blog.html' },
+				{ from: /./, to: '/index.html' },
+			],
+		},
+		port: 3000,
 	},
 };
 
