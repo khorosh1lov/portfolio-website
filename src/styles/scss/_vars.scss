@@ -1,0 +1,22 @@
+// Colors
+$black: #2d2e32;
+$white: #ffffff;
+$blue: #18386f;
+$background-color: #f9f9f9;
+
+// Typo
+$primary-fonts: 'Poppins', Arial, Helvetica, sans-serif;
+$fonts-size: 1rem;
+$fonts-line: calc($fonts-size + 40%);
+$fonts-weight: 400;
+$fonts-weight-bold: 700;
+$fonts-color: $black;
+
+// Gaps
+$s-gap: 10px;
+$m-gap: 20px;
+$l-gap: 30px;
+$xl-gap: 40px;
+
+// Screens breakpoints
+$desktop-size: 769px;

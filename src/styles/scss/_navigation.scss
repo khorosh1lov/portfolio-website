@@ -1,0 +1,84 @@
+aside > nav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    .menu__links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: $s-gap;
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        li > a {
+            font-size: calc($fonts-size * 1.5);
+            font-weight: $fonts-weight-bold;
+            color: $white;
+            text-decoration: none;
+            
+        }
+        li > a:hover {
+            color: darken($color: $white, $amount: 25);
+        }
+    }
+}
+
+aside > nav.opened {
+    transform: translateX(0%);
+    width: 80%;
+}
+
+aside > nav > .menu__close {
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg version='1.2' baseProfile='tiny' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M17.414 6.586c-.78-.781-2.048-.781-2.828 0l-2.586 2.586-2.586-2.586c-.78-.781-2.048-.781-2.828 0-.781.781-.781 2.047 0 2.828l2.585 2.586-2.585 2.586c-.781.781-.781 2.047 0 2.828.39.391.902.586 1.414.586s1.024-.195 1.414-.586l2.586-2.586 2.586 2.586c.39.391.902.586 1.414.586s1.024-.195 1.414-.586c.781-.781.781-2.047 0-2.828l-2.585-2.586 2.585-2.586c.781-.781.781-2.047 0-2.828z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    background-position: center;
+    cursor: pointer;
+}
+
+/* Mobile specific */
+@media screen and (max-width: 768px) {
+    aside > nav {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-height: 100vh;
+        width: 80%;
+        transition: -webkit-transform 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+        transition: transform 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+        transition: transform 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86),-webkit-transform 0.4s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+        transform: translateX(-120%);
+        z-index: 5;
+        overflow-x: auto;
+    }
+}
+
+/* Desktop View */
+@media screen and (min-width: 769px) {
+    aside {
+        display: grid;
+        grid-column: 1;
+        grid-row: 1 / 4;
+        height: 100%;
+        padding: 1rem;
+        overflow-y: auto;
+        background-color: #18386f;
+    }
+
+    aside > nav > .menu__close {
+        display: none;
+    }
+}

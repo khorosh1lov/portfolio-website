@@ -1,0 +1,16 @@
+main {
+    grid-row: 2;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+main > section {
+    margin-bottom: 2rem;
+}
+
+/* Desktop View */
+@media screen and (min-width: 769px) {
+    main {
+        grid-column: 2;
+    }
+}
