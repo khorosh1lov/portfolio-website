@@ -3,7 +3,7 @@ import { closeMenu, openMenu } from '../../app/components/Menu.js';
 import createFooter from '../../app/components/Footer.js';
 import createHeader from '../../app/components/Header.js';
 import createNav from '../../app/components/Nav.js';
-import { getBlogContent } from '../../app/contentLoader.js';
+import { getPortfolioContent } from '../../app/contentLoader.js';
 import routes from '../../app/routes.js';
 import styles from '../../styles/styles.scss';
 
@@ -16,7 +16,7 @@ document.body.prepend(nav);
 document.body.appendChild(footer);
 
 const main = document.querySelector('#page');
-getBlogContent(header, main);
+getPortfolioContent(header, main);
 
 document.querySelector('#menu-opener').addEventListener('click', openMenu);
 document.querySelector('#menu-closer').addEventListener('click', closeMenu);

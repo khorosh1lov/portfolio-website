@@ -12,6 +12,7 @@ const config = {
 	entry: {
 		index: './src/index.js',
 		blog: './src/pages/blog/blog.js',
+		portfolio: './src/pages/portfolio/portfolio.js',
 	},
 	output: {
 		filename: '[name].bundle.js',
@@ -48,6 +49,11 @@ const config = {
 			filename: 'blog.html',
 			chunks: ['blog'],
 		}),
+		new HtmlWebpackPlugin({
+			template: './src/pages/portfolio/portfolio.html',
+			filename: 'portfolio.html',
+			chunks: ['portfolio'],
+		}),
 		new MiniCssExtractPlugin({
 			filename: 'styles.css',
 		}),
@@ -59,6 +65,7 @@ const config = {
 		historyApiFallback: {
 			rewrites: [
 				{ from: /^\/blog$/, to: '/blog.html' },
+				{ from: /^\/portfolio$/, to: '/portfolio.html' },
 				{ from: /./, to: '/index.html' },
 			],
 		},
