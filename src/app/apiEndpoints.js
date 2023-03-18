@@ -4,7 +4,7 @@
  * @type {string}
  */
 const BASE_URL = 'http://localhost/portfolio/backend/wp-json/wp/v2/';
-const CUSTOM_URL = 'http://localhost/portfolio/backend/wp-json/custom/';
+const MENU_URL = 'http://localhost/portfolio/backend/wp-json/custom/menu/';
 
 /**
  * The endpoints for the WordPress API
@@ -19,7 +19,7 @@ const API_ENDPOINTS = {
 	getHomepageContent: `${BASE_URL}pages/2`,
 	getAllBlogPosts: `${BASE_URL}posts?categories=1`,
 	getAllPortfolioPosts: `${BASE_URL}posts?categories=2`,
-	getSocialMenu: `${CUSTOM_URL}menu/`,
+	getSocialMenu: `${MENU_URL}`,
 };
 
 export default API_ENDPOINTS;

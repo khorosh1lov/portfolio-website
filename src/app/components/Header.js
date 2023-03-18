@@ -1,14 +1,18 @@
+import createNavTemplate from './Nav.js';
+import routes from '../routes.js';
+
 /**
- * Function to create the header element with an h1 element containing a title
+ * Function to create the header template with the navigation template
  * @function
- * @param {string} title - The title to be added to the h1 element
- * @returns {Object} - An object containing the header element and its h1 child element
- * @property {HTMLElement} header - The header element
- * @property {HTMLElement} h1 - The h1 child element of the header element
+ * @returns {Promise<string>} - The header template with the navigation template
  */
-const createHeader = () => {
-	const header = document.createElement('header');
-	return header;
+const createHeaderTemplate = async () => {
+	const navTemplate = await createNavTemplate(routes);
+	return `
+    <header>
+      ${navTemplate}
+    </header>
+  `;
 };
 
-export default createHeader;
+export default createHeaderTemplate;

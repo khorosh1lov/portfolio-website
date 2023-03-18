@@ -1,16 +1,14 @@
 /**
- * Function to create the footer element
+ * Function to create the footer template
  * @function
- * @returns {HTMLElement} - The footer element with the menuOpener child element
+ * @returns {string} - The footer template
  */
-const createFooter = () => {
-	const footer = document.createElement('footer');
-	const menuOpener = document.createElement('div');
-	menuOpener.id = 'menu-opener';
-	menuOpener.className = 'mobile__menu_button';
-	footer.appendChild(menuOpener);
-
-	return footer;
+const createFooterTemplate = () => {
+	return `
+    <footer>
+      <div id="menu-opener" class="mobile__menu_button"></div>
+    </footer>
+  `;
 };
 
-export default createFooter;
+export default createFooterTemplate;

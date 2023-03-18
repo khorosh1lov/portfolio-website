@@ -1,34 +1,29 @@
+import { getSocialLinks } from '../contentLoader.js';
+
 /**
- * Function to create the navigation element
+ * Function to create the navigation template
  * @function
- * @returns {HTMLElement} - The navigation bar element
+ * @returns {Promise<string>} - The navigation template
  */
-const createNav = (pages) => {
-	const aside = document.createElement('aside');
-	const nav = document.createElement('nav');
-	nav.id = 'menu';
-	nav.setAttribute('role', 'navigation');
-	aside.appendChild(nav);
+const createNavTemplate = async (pages) => {
+	const socialLinksData = await getSocialLinks('main');
+	const socialLinksTemplate = socialLinksData.map((link) => `<li><a href="${link.url}">${link.title}</a></li>`).join('');
 
-	const menuClose = document.createElement('div');
-	menuClose.className = 'menu__close';
-	menuClose.id = 'menu-closer';
-	nav.appendChild(menuClose);
-
-	const ul = document.createElement('ul');
-	ul.className = 'menu__links';
-	nav.appendChild(ul);
-
-	pages.forEach((page) => {
-		const li = document.createElement('li');
-		const a = document.createElement('a');
-		a.href = page === 'Home' ? '/' : `/${page.toLowerCase()}`;
-		a.textContent = page;
-		li.appendChild(a);
-		ul.appendChild(li);
-	});
-
-	return aside;
+	return `
+        <div class="menu__wrapper">
+            <nav id="menu" role="navigation">
+                <div class="menu__close" id="menu-closer"></div>
+                <ul class="menu__links">
+                     ${pages.map((page) => `<li><a href="${page === 'Home' ? '/' : `/${page.toLowerCase()}`}">${page}</a></li>`).join('')}
+                </ul>
+            </nav>
+            <div id="social-menu">
+                <ul class="social-menu__links">
+                    ${socialLinksTemplate}
+                </ul>
+            </div>
+        </div>
+    `;
 };
 
-export default createNav;
+export default createNavTemplate;
