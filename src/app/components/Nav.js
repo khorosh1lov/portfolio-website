@@ -8,7 +8,7 @@ import { getSocialLinks } from '../contentLoader.js';
 const createNavTemplate = async (pages) => {
 	const socialLinksData = await getSocialLinks('main');
 	const socialLinksTemplate = socialLinksData.map((link) => `
-        <li class="social_links">
+        <li class="social_link">
             <a target="_blank" href="${link.url}" title="${link.post_name}">
                 ${link.title}
             </a>
