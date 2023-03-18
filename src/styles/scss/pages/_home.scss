@@ -26,17 +26,6 @@
     margin-left: 2rem;
 }
 
-.page-wrapper a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
 .tech-stack {
     display: flex;
     align-items: center;
@@ -63,7 +52,24 @@
 
 .icon {
     font-size: 3rem;
-    color: #007bff;
+}
+.icon-js {
+    color: #f0db4f;
+}
+.icon-html {
+    color: #f16528;
+}
+.icon-css {
+    color: #0277bd;
+}
+.icon-sass {
+    color: #ce679a;
+}
+.icon-react {
+    color: #61dbfb;
+}
+.icon-php {
+    color: #2d2e32;
 }
 
 .scroll-down {

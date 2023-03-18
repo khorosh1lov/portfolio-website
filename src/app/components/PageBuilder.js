@@ -2,25 +2,19 @@ import createFooterTemplate from './Footer.js';
 import createHeaderTemplate from './Header.js';
 import { initMenu } from './Menu.js';
 
-export async function createPageStructure(contentTemplate = '') {
+export async function createPageStructure() {
 	const headerTemplate = await createHeaderTemplate();
 	const footerTemplate = createFooterTemplate();
 
-	document.body.innerHTML = `
-    ${headerTemplate}
-    <main id="page">
-      <div class="page-wrapper">
-        ${contentTemplate}
-      </div>
-    </main>
-    ${footerTemplate}
-  `;
+	const body = document.body;
+	body.insertAdjacentHTML('afterbegin', headerTemplate);
+	body.insertAdjacentHTML('beforeend', footerTemplate);
 
 	initMenu();
 }
 
 export function getPageWrapper() {
-	const main = document.querySelector('#page');
-	const wrapper = main.querySelector('.page-wrapper');
+  const page = document.querySelector('#page');
+  const wrapper = page.querySelector('.page-wrapper');
 	return wrapper;
 }
