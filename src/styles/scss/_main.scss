@@ -9,12 +9,12 @@ main {
 }
 
 .page-wrapper {
-    width: 980px;
+    width: 100%;
+    max-width: 980px;
     margin: 0 auto;
     padding: 0 $m-gap;
 
     @media (max-width: 767px), (max-width: 320px) {
-      width: 100%;
       padding: 0 $s-gap;
     }
 }
