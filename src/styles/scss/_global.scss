@@ -1,21 +1,43 @@
 @import './normalize';
 @import './vars';
 
+@mixin responsive-typography {
+  @media (min-width: $mobile-size) and (max-width: $tablet-size - 1px) {
+    font-size: $mobile-font-size;
+  }
+
+  @media (min-width: $tablet-size) and (max-width: $desktop-size - 1px) {
+    font-size: $tablet-font-size;
+  }
+
+  @media (min-width: $desktop-size) {
+    font-size: $desktop-font-size;
+  }
+}
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 
 body {
-    font-family: $primary-fonts;
-    font-size: $fonts-size;
-    line-height: $fonts-line;
-    font-weight: $fonts-weight;
-    color: $fonts-color;
-    background: $background-color;
+  font-family: $primary-fonts;
+  font-size: $base-font-size;
+  line-height: $line-height-ratio * $base-font-size;
+  font-weight: $fonts-weight;
+  color: $fonts-color;
+  background: $background-color;
+}
+
+
+h1 {
+  font-size: 3 * $base-font-size;
+  line-height: 2 * $line-height-ratio * $base-font-size;
+  font-weight: $fonts-weight-bold;
+  color: $fonts-color;
 }

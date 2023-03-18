@@ -6,8 +6,8 @@ $background-color: #f9f9f9;
 
 // Typo
 $primary-fonts: 'Poppins', Arial, Helvetica, sans-serif;
-$fonts-size: 1rem;
-$fonts-line: calc($fonts-size + 40%);
+$base-font-size: 1rem;
+$line-height-ratio: 1.6;
 $fonts-weight: 400;
 $fonts-weight-bold: 700;
 $fonts-color: $black;
@@ -20,3 +20,10 @@ $xl-gap: 40px;
 
 // Screens breakpoints
 $desktop-size: 769px;
+$tablet-size: 768px;
+$mobile-size: 320px;
+
+// Typography Sizes
+$mobile-font-size: 1 * $base-font-size;
+$tablet-font-size: 1.1 * $base-font-size;
+$desktop-font-size: 1.25 * $base-font-size;

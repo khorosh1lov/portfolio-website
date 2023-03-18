@@ -22,7 +22,7 @@
 .menu__links {
   display: flex;
   list-style: none;
-  margin-left: 2rem;
+  margin-left: $xl-gap;
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -34,14 +34,16 @@
 
 .menu__links li a {
   text-decoration: none;
-  color: #333333;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
+  color: $black;
+  font-size: $base-font-size;
+  padding: $s-gap $m-gap;
   transition: color 0.3s ease-in-out;
 
   &:hover {
     color: #0078f5;
   }
+
+  @include responsive-typography;
 }
 
 .menu__close {
