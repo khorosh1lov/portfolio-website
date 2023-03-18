@@ -49,15 +49,26 @@ async function getSocialLinks(menu) {
 }
 
 async function getHomeContent() {
-	return getContent(API_ENDPOINTS.getHomepageContent, 'Home');
+	const content = await getContent(API_ENDPOINTS.getHomepageContent, 'Home');
+	console.log('Home content:', content);
+	return content;
 }
 
 async function getBlogContent(categoryName) {
-	return getContent(API_ENDPOINTS.getAllBlogPosts + categoryName, 'Blog');
+	const endpoint = API_ENDPOINTS.getAllBlogPosts + categoryName;
+	console.log('Blog endpoint:', endpoint);
+	const content = await getContent(endpoint, 'Blog');
+	console.log('Blog content:', content);
+	return content;
 }
 
 async function getPortfolioContent(categoryName) {
-	return getContent(API_ENDPOINTS.getAllPortfolioPosts + categoryName, 'Portfolio');
+	const endpoint = API_ENDPOINTS.getAllPortfolioPosts + categoryName;
+	console.log('Portfolio endpoint:', endpoint);
+	const content = await getContent(endpoint, 'Portfolio');
+	console.log('Portfolio content:', content);
+	return content;
 }
+
 
 export { getHomeContent, getBlogContent, getPortfolioContent, getSocialLinks };

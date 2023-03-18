@@ -2,7 +2,7 @@ import createFooterTemplate from './Footer.js';
 import createHeaderTemplate from './Header.js';
 import { initMenu } from './Menu.js';
 
-export async function createPageStructure() {
+export async function createPageStructure(contentTemplate = '') {
 	const headerTemplate = await createHeaderTemplate();
 	const footerTemplate = createFooterTemplate();
 
@@ -10,6 +10,7 @@ export async function createPageStructure() {
     ${headerTemplate}
     <main id="page">
       <div class="page-wrapper">
+        ${contentTemplate}
       </div>
     </main>
     ${footerTemplate}
