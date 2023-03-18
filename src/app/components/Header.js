@@ -10,7 +10,10 @@ const createHeaderTemplate = async () => {
 	const navTemplate = await createNavTemplate(routes);
 	return `
     <header>
-      ${navTemplate}
+      <div class="header-container">
+        <a class="logo" href="/" title="home">Webeat.dev</a>
+        ${navTemplate}
+      </div>
     </header>
   `;
 };

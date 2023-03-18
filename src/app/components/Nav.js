@@ -10,18 +10,19 @@ const createNavTemplate = async (pages) => {
 	const socialLinksTemplate = socialLinksData.map((link) => `<li><a href="${link.url}">${link.title}</a></li>`).join('');
 
 	return `
+        <button class="menu-toggle" id="menu-opener">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="menu__wrapper">
             <nav id="menu" role="navigation">
-                <div class="menu__close" id="menu-closer"></div>
+                <div class="menu__close" id="menu-closer">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
                 <ul class="menu__links">
                      ${pages.map((page) => `<li><a href="${page === 'Home' ? '/' : `/${page.toLowerCase()}`}">${page}</a></li>`).join('')}
+                     ${socialLinksTemplate}
                 </ul>
             </nav>
-            <div id="social-menu">
-                <ul class="social-menu__links">
-                    ${socialLinksTemplate}
-                </ul>
-            </div>
         </div>
     `;
 };
