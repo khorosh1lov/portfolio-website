@@ -21,6 +21,7 @@
 
 .menu__links {
   display: flex;
+  align-items: center;
   list-style: none;
   margin-left: $xl-gap;
 
@@ -44,6 +45,10 @@
   }
 
   @include responsive-typography;
+}
+
+.menu__links li.social_links a {
+  font-size: 2 * $base-font-size;
 }
 
 .menu__close {

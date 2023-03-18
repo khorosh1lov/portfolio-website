@@ -7,7 +7,12 @@ import { getSocialLinks } from '../contentLoader.js';
  */
 const createNavTemplate = async (pages) => {
 	const socialLinksData = await getSocialLinks('main');
-	const socialLinksTemplate = socialLinksData.map((link) => `<li><a href="${link.url}">${link.title}</a></li>`).join('');
+	const socialLinksTemplate = socialLinksData.map((link) => `
+        <li class="social_links">
+            <a target="_blank" href="${link.url}" title="${link.post_name}">
+                ${link.title}
+            </a>
+        </li>`).join('');
 
 	return `
         <button class="menu-toggle" id="menu-opener">
@@ -19,7 +24,7 @@ const createNavTemplate = async (pages) => {
                     <i class="fa-solid fa-xmark"></i>
                 </div>
                 <ul class="menu__links">
-                     ${pages.map((page) => `<li><a href="${page === 'Home' ? '/' : `/${page.toLowerCase()}`}">${page}</a></li>`).join('')}
+                     ${pages.map((page) => `<li class="pages_link"><a href="${page === 'Home' ? '/' : `/${page.toLowerCase()}`}">${page}</a></li>`).join('')}
                      ${socialLinksTemplate}
                 </ul>
             </nav>
