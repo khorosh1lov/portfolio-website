@@ -1,16 +1,27 @@
 footer {
+    position: relative;
     width: 100%;
     background-color: $black;
     transition: height 0.3s;
-    min-height: 50px;
+    min-height: 60px;
+
+    @media (max-width: $tablet-size) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
 
     .footer-container {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0 $m-gap;
-
         color: $white;
+
+
+        @media (max-width: $tablet-size) {
+            justify-content: space-between;
+        }
 
         p {
             margin: 0;
@@ -19,6 +30,28 @@ footer {
             @media (max-width: $tablet-size) {
                 display: none;
             }
+        }
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0 $m-gap;
+        position: relative;
+
+        @media (max-width: $tablet-size) {
+            display: block;
+        }
+
+        i {
+            color: $white;
+            font-size: 2.5rem;
+            position: absolute;
+            right: 40%;
+            transform: translate(0%, 25%);
         }
     }
 }

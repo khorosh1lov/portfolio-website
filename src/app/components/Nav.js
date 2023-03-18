@@ -15,9 +15,6 @@ const createNavTemplate = async (pages) => {
         </li>`).join('');
 
 	return `
-        <button class="menu-toggle" id="menu-opener">
-            <i class="fa-solid fa-bars"></i>
-        </button>
         <div class="menu__wrapper">
             <nav id="menu" role="navigation">
                 <div class="menu__close" id="menu-closer">

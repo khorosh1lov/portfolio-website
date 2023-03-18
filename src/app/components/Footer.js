@@ -9,10 +9,12 @@ const createFooterTemplate = () => {
   return `
     <footer>
       <div class="footer-container">
-        <div id="menu-opener" class="mobile__menu_button"></div>
         <div class="footer-wrapper">
           <p>© ${currentYear} Alexander Khoroshilov</p>
         </div>
+        <button class="menu-toggle" id="menu-opener">
+            <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </footer>
   `;
