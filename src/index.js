@@ -10,13 +10,16 @@ import styles from './styles/styles.scss';
 
 	document.body.innerHTML = `
 		${headerTemplate}
-		<main id="page"></main>
+		<main id="page">
+			<div class="page-wrapper"></div>
+		</main>
 		${footerTemplate}
   	`;
 
 	const main = document.querySelector('#page');
+	const wrapper = main.querySelector('.page-wrapper');
 	const content = await getHomeContent();
-	main.innerHTML = content;
+	wrapper.innerHTML = content;
 
 	initMenu();
 })();
