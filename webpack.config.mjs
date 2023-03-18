@@ -43,16 +43,19 @@ const config = {
 			template: './src/index.html',
 			filename: 'index.html',
 			chunks: ['index'],
+			inject: 'body',
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/pages/blog/blog.html',
 			filename: 'blog.html',
 			chunks: ['blog'],
+			inject: 'body',
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/pages/portfolio/portfolio.html',
 			filename: 'portfolio.html',
 			chunks: ['portfolio'],
+			inject: 'body',
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'styles.css',
