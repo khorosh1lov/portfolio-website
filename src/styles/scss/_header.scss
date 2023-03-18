@@ -8,7 +8,8 @@ header {
   z-index: 1000;
   transition: height 0.3s;
 
-  @include responsive-typography;
+  font-size: 1.75 * $base-font-size;
+  //@include responsive-typography;
 }
 
 .header-container {
@@ -16,8 +17,12 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  padding: 0 1rem;
+  padding: 0 calc(2 * $xl-gap);
   transition: height 0.3s;
+
+  @media (max-width: $tablet-size) {
+    padding: 0 $xl-gap;
+  }
 }
 
 .header--scrolled .header-container {
@@ -39,7 +44,7 @@ header {
   padding: 0 1rem;
   position: relative;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     display: block;
   }
 

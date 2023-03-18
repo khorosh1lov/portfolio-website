@@ -15,6 +15,10 @@ footer {
         p {
             margin: 0;
             padding: $m-gap 0;
+
+            @media (max-width: $tablet-size) {
+                display: none;
+            }
         }
     }
 }

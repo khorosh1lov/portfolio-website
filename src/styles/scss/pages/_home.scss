@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     height: auto;
   }
 }
@@ -16,7 +16,7 @@
   align-items: center;
   margin-bottom: $xl-gap;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     flex-direction: column;
     gap: $m-gap;
   }
@@ -27,7 +27,7 @@
 
   @include responsive-typography;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     order: 2;
     text-align: center;
   }
@@ -42,7 +42,7 @@
   object-fit: cover;
   margin-left: $xl-gap;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     order: 1;
     margin-left: 0;
   }
@@ -54,7 +54,7 @@
   margin-bottom: $m-gap;
   text-align: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     flex-direction: column;
     gap: $m-gap;
   }
@@ -78,7 +78,7 @@
   display: flex;
   gap: 1rem;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -87,7 +87,7 @@
 .icon {
   font-size: 2.75 * $base-font-size;
 
-  @media (max-width: 320px) {
+  @media (max-width: $mobile-size) {
     font-size: 2 * $base-font-size;
   }
 }

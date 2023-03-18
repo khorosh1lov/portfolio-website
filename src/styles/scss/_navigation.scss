@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     position: fixed;
     top: 0;
     left: 0;
@@ -25,46 +25,11 @@
   list-style: none;
   margin-left: $xl-gap;
 
-  @media (max-width: 767px) {
-    display: block;
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .pages_link {
-    @media (max-width: 767px) {
-      display: block;
-      margin-bottom: $l-gap;
-    }
-
-    a {
-       @media (max-width: 767px) {
-        font-size: 2.5 * $base-font-size;
-       }
-    }
-  }
-
-  .social_link {
-     @media (max-width: 767px) {
-      display: inline-block;
-      margin: 0 $m-gap;
-    }
-
-    a {
-      font-size: 2 * $base-font-size;
-    }
-
-    a {
-       @media (max-width: 767px) {
-        font-size: 2.5 * $base-font-size;
-       }
-    }
-  }
-
-  a {
+   a {
     text-decoration: none;
     color: $black;
     font-size: $base-font-size;
+    font-weight: $fonts-weight-bold;
     padding: $s-gap $m-gap;
     transition: color 0.3s ease-in-out;
 
@@ -74,12 +39,48 @@
 
     @include responsive-typography;
   }
+
+  @media (max-width: $tablet-size) {
+    display: block;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .pages_link {
+    @media (max-width: $tablet-size) {
+      display: block;
+      margin-bottom: $l-gap;
+    }
+
+    a {
+       @media (max-width: $tablet-size) {
+        font-size: 2.5 * $base-font-size;
+       }
+    }
+  }
+
+  .social_link {
+     @media (max-width: $tablet-size) {
+      display: inline-block;
+      margin: 0 $s-gap;
+    }
+
+    a {
+      font-size: 2 * $base-font-size;
+    }
+
+    a {
+       @media (max-width: $tablet-size) {
+        font-size: 2.5 * $base-font-size;
+       }
+    }
+  }
 }
 
 .menu__close {
   display: none;
 
-  @media (max-width: 767px) {
+  @media (max-width: $tablet-size) {
     display: block;
     position: absolute;
     top: 1.5rem;
