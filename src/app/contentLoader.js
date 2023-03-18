@@ -52,12 +52,12 @@ async function getHomeContent() {
 	return getContent(API_ENDPOINTS.getHomepageContent, 'Home');
 }
 
-async function getBlogContent() {
-	return getContent(API_ENDPOINTS.getAllBlogPosts, 'Blog');
+async function getBlogContent(categoryName) {
+	return getContent(API_ENDPOINTS.getAllBlogPosts + categoryName, 'Blog');
 }
 
-async function getPortfolioContent() {
-	return getContent(API_ENDPOINTS.getAllPortfolioPosts, 'Portfolio');
+async function getPortfolioContent(categoryName) {
+	return getContent(API_ENDPOINTS.getAllPortfolioPosts + categoryName, 'Portfolio');
 }
 
 export { getHomeContent, getBlogContent, getPortfolioContent, getSocialLinks };

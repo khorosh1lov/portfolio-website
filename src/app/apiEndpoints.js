@@ -17,8 +17,8 @@ const MENU_URL = 'http://localhost/portfolio/backend/wp-json/custom/menu/';
  */
 const API_ENDPOINTS = {
 	getHomepageContent: `${BASE_URL}pages/2`,
-	getAllBlogPosts: `${BASE_URL}posts?category_name=blog`,
-	getAllPortfolioPosts: `${BASE_URL}posts?category_name=portfolio`,
+	getAllBlogPosts: `${BASE_URL}posts?category_name=`,
+	getAllPortfolioPosts: `${BASE_URL}posts?category_name=`,
 	getSocialMenu: `${MENU_URL}`,
 };
 

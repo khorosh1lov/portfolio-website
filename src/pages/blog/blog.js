@@ -18,7 +18,7 @@ import styles from '../../styles/styles.scss';
 
 	const main = document.querySelector('#page');
 	const wrapper = main.querySelector('.page-wrapper');
-	const content = await getBlogContent();
+	const content = await getBlogContent('blog');
 	wrapper.innerHTML = content;
 
 	initMenu();
