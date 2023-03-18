@@ -11,7 +11,8 @@ import styles from './styles/styles.scss';
 	document.body.innerHTML = `
 		${headerTemplate}
 		<main id="page">
-			<div class="page-wrapper"></div>
+			<div class="page-wrapper">
+			</div>
 		</main>
 		${footerTemplate}
   	`;

@@ -6,9 +6,10 @@
   "license": "Standard License",
   "type": "module",
   "scripts": {
-    "build": "webpack --mode production",
+    "preprod": "node webpack.config.prod.js",
+    "build": "npm run preprod && webpack --mode production",
     "watch": "webpack --watch --mode development",
-    "serve": "webpack serve"
+    "serve": "npm run preprod && webpack serve"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -18,13 +19,18 @@
     "babel-loader": "^9.1.2",
     "concurrently": "^7.6.0",
     "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "image-minimizer-webpack-plugin": "^3.8.2",
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^8.0.0",
     "mini-css-extract-plugin": "^2.7.4",
     "mocha": "^10.2.0",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.1.0",
     "sass": "^1.59.3",
     "sass-loader": "^13.2.0",
+    "sharp-loader": "^2.0.0",
     "style-loader": "^3.3.2",
     "webpack": "^5.76.2",
     "webpack-cli": "^5.0.1",
