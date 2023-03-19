@@ -1,32 +1,25 @@
 import { createPageStructure, getPageWrapper } from '../../app/components/PageBuilder.js';
 
-import Router from '../../app/Router.js';
+import { MEDIUM_URL } from '../../app/apiEndpoints.js';
 import { getBlogContent } from '../../app/contentLoader.js';
-import { getSingleBlogContent } from '../../app/contentLoader.js';
 import styles from '../../styles/styles.scss';
 
-const router = new Router([
-	{
-		path: '/blog',
-		action: async () => {
-			await createPageStructure();
+async function initBlogPage() {
+	await createPageStructure();
 
-			const wrapper = getPageWrapper();
+	const wrapper = getPageWrapper();
 
-			const content = await getBlogContent('blog');
-			wrapper.innerHTML += content;
-		},
-	},
-	{
-		path: '/blog/:slug',
-		action: async () => {
-			await createPageStructure();
+	const content = await getBlogContent('blog');
+	wrapper.innerHTML += content;
 
-			const wrapper = getPageWrapper();
+	const postLinks = wrapper.querySelectorAll('.post-link');
+	postLinks.forEach((postLink) => {
+		postLink.addEventListener('click', (event) => {
+			event.preventDefault();
+			const slug = postLink.dataset.slug;
+			window.location.href = `${MEDIUM_URL + slug}`;
+		});
+	});
+}
 
-			const slug = window.location.pathname.split('/')[2];
-			const content = await getSingleBlogContent(slug);
-			wrapper.innerHTML += content;
-		},
-	},
-]);
+initBlogPage();

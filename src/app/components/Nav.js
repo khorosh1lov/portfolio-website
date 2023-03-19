@@ -1,5 +1,3 @@
-import { getSocialLinks } from '../contentLoader.js';
-
 /**
  * Function to create the navigation template
  * @function

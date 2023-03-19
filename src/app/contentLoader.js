@@ -4,7 +4,7 @@ import axios from 'axios';
 async function getContent(endpoint, headerTitle) {
 	try {
 		const response = await axios.get(endpoint);
-		const data = response.data;;
+		const data = response.data;
 
 		if (Array.isArray(data)) {
 			const posts = data
@@ -34,31 +34,14 @@ async function getContent(endpoint, headerTitle) {
 				${posts}
 				</section>`;
 
-			// Attach click event listeners to post links
-			const tempDiv = document.createElement('div');
-			tempDiv.innerHTML = content.trim();
-			const postLinks = tempDiv.querySelectorAll('.post-link');
-
-			postLinks.forEach((postLink) => {
-				postLink.addEventListener('click', (event) => {
-					event.preventDefault();
-					const slug = postLink.dataset.slug;
-					router.loadRoute(`/blog/${slug}`);
-					history.pushState(null, null, `/blog/${slug}`);
-				});
-			});
-
 			return content;
-		} else {
-			return `
-        <h1>${data.title.rendered}</h1>
-        ${data.content.rendered}`;
 		}
 	} catch (error) {
 		console.error('Data receiving error:', error);
 		return '';
 	}
 }
+
 
 async function getMenu(endpoint) {
 	try {
@@ -68,11 +51,6 @@ async function getMenu(endpoint) {
 		console.error('Data receiving error:', error);
 		return [];
 	}
-}
-
-async function getSocialLinks(menu) {
-	const socialLinks = await getMenu(API_ENDPOINTS.getSocialMenu + menu);
-	return socialLinks;
 }
 
 async function getHomeContent() {
@@ -92,11 +70,4 @@ async function getPortfolioContent(categoryName) {
 	return content;
 }
 
-async function getSingleBlogContent(slug) {
-	const endpoint = API_ENDPOINTS.getSingleBlogPostBySlug + slug + '&_embed';
-	const content = await getContent(endpoint, '');
-	return content;
-}
-
-
-export { getHomeContent, getBlogContent, getPortfolioContent, getSocialLinks, getSingleBlogContent };
+export { getHomeContent, getBlogContent, getPortfolioContent };

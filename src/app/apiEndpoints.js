@@ -5,6 +5,7 @@
  */
 const BASE_URL = 'http://localhost/portfolio/backend/wp-json/wp/v2/';
 const MENU_URL = 'http://localhost/portfolio/backend/wp-json/custom/menu/';
+export const MEDIUM_URL = 'https://khoroshilov-alex.medium.com/';
 
 /**
  * The endpoints for the WordPress API
