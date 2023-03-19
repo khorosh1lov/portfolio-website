@@ -6,7 +6,7 @@
 const BASE_URL = 'http://localhost/portfolio/backend/wp-json/wp/v2/';
 const MENU_URL = 'http://localhost/portfolio/backend/wp-json/custom/menu/';
 export const MEDIUM_URL = 'https://khoroshilov-alex.medium.com/';
-
+export const SUBDOMAIN_URL = '.webeat.dev/';
 /**
  * The endpoints for the WordPress API
  * @constant API_ENDPOINTS

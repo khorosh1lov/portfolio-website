@@ -1,10 +1,12 @@
+import { SUBDOMAIN_URL } from '../../app/apiEndpoints.js';
+
 export function portfolioTemplate(item) {
 	const thumbnailUrl = item._embedded['wp:featuredmedia'] ? item._embedded['wp:featuredmedia'][0].source_url : '';
 
 	return `
     <article class="post">
         <div class="card"> 
-            <a href="/blog/${item.slug}" data-slug="${item.slug}" class="post-link"> 
+            <a href="https://${item.slug}${SUBDOMAIN_URL}" data-slug="${item.slug}" class="post-link" target="_blank"> 
                 <div class="card-image">
                     <img src="${thumbnailUrl}" alt="${item.title.rendered}">
                 </div> 
