@@ -25,3 +25,20 @@ export const initSmoothScroll = () => {
 		link.addEventListener('click', handleAnchorClick);
 	});
 };
+
+export const headerScrollBehavior = () => {
+	const header = document.querySelector('header');
+	let lastScrollTop = 0;
+
+	window.addEventListener('scroll', () => {
+		const currentScrollTop = window.pageYOffset;
+
+		if (currentScrollTop > lastScrollTop) {
+			header.classList.add('header-hidden');
+		} else {
+			header.classList.remove('header-hidden');
+		}
+
+		lastScrollTop = currentScrollTop;
+	});
+};

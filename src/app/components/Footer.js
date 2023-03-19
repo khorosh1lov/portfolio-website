@@ -46,10 +46,10 @@ const createFooterTemplate = () => {
                 <i class="fa-brands fa-github icon"></i>
               </a>
           </div>
-        </div>
-        <button class="menu-toggle" id="menu-opener">
+          <button class="menu-toggle" id="menu-opener">
             <i class="fa-solid fa-bars"></i>
-        </button>
+          </button>
+        </div>
       </div>
     </footer>
   `;

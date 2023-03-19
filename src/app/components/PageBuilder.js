@@ -1,7 +1,8 @@
+import { headerScrollBehavior, initSmoothScroll } from '../utils.js';
+
 import createFooterTemplate from './Footer.js';
 import createHeaderTemplate from './Header.js';
 import { initMenu } from './Menu.js';
-import { initSmoothScroll } from '../utils.js';
 
 export async function createPageStructure() {
 	const headerTemplate = await createHeaderTemplate();
@@ -13,6 +14,7 @@ export async function createPageStructure() {
 
 	initMenu();
 	initSmoothScroll();
+	headerScrollBehavior();
 }
 
 export function getPageWrapper() {

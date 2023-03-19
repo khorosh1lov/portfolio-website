@@ -6,7 +6,7 @@ header {
   background-color: $white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: height 0.3s;
+  transition: transform 0.3s ease;
 
   font-size: 1.75 * $base-font-size;
   //@include responsive-typography;
@@ -25,8 +25,8 @@ header {
   }
 }
 
-.header--scrolled .header-container {
-  height: 60px;
+.header-hidden {
+  transform: translateY(-100%);
 }
 
 .logo {

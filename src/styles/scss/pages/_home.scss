@@ -141,7 +141,9 @@
     color: #007bff;
   }
 
-  //@include responsive-typography;
+  @media (max-width: $tablet-size) {
+    display: none;
+  }
 }
 
 @keyframes bounce {

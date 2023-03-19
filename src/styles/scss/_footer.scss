@@ -1,7 +1,11 @@
 .contacts {
     width: 100%;
-    padding: 40px 0;
+    padding: $xl-gap 0;
     background-color: #ffffff;
+
+    @media (max-width: $tablet-size) {
+        padding: 2*$xl-gap 0;
+    }
 
     .contacts-container {
         width: 100%;
@@ -46,6 +50,12 @@
             align-items: center;
             gap: 2 * $xl-gap;
 
+            @media (max-width: $tablet-size) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: $m-gap;
+            }
+
             .contact-icon-box {
                 align-items: center;
                 display: flex;
@@ -84,7 +94,7 @@ footer {
     width: 100%;
     background-color: $black;
     transition: height 0.3s;
-    min-height: 60px;
+    padding: $s-gap 0;
 
     @media (max-width: $tablet-size) {
         position: fixed;
@@ -145,9 +155,6 @@ footer {
         i {
             color: $white;
             font-size: 2.5rem;
-            position: absolute;
-            right: 40%;
-            transform: translate(0%, 25%);
         }
     }
 }
