@@ -16,12 +16,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 980px;
   height: 80px;
-  padding: 0 calc(2 * $xl-gap);
+  margin: auto;
+  padding: 0 $m-gap;
   transition: height 0.3s;
 
   @media (max-width: $tablet-size) {
-    padding: 0 $xl-gap;
+    padding: 0 $s-gap;
   }
 }
 

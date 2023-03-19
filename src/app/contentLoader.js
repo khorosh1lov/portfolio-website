@@ -4,7 +4,7 @@ import axios from 'axios';
 async function getContent(endpoint, headerTitle) {
 	try {
 		const response = await axios.get(endpoint);
-		const data = response.data;
+		const data = response.data;;
 
 		if (Array.isArray(data)) {
 			const posts = data
@@ -13,11 +13,17 @@ async function getContent(endpoint, headerTitle) {
 
 					return `
 						<article class="post">
-						<a href="/blog/${item.slug}" data-slug="${item.slug}" class="post-link">
-							<h2>${item.title.rendered}</h2>
-							<p>${item.content.rendered.split('.')[0]}.</p>
-							<img src="${thumbnailUrl}" alt="${item.title.rendered}">
-						</a>
+							<div class="card">
+								<a href="/blog/${item.slug}" data-slug="${item.slug}" class="post-link">
+									<div class="card-image">
+										<img src="${thumbnailUrl}" alt="${item.title.rendered}">
+									</div>
+									<div class="card-content">
+										<h2>${item.title.rendered}</h2>
+										<i>${item.content.rendered.split('.')[0]}.</i>
+									</div>
+								</a>
+							</div>
 						</article>`;
 				})
 				.join('');
