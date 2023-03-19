@@ -9,10 +9,13 @@ async function getContent(endpoint, headerTitle) {
 		if (Array.isArray(data)) {
 			const posts = data
 				.map((item) => {
+					const thumbnailUrl = item._embedded['wp:featuredmedia'] ? item._embedded['wp:featuredmedia'][0].source_url : '';
+
 					return `
                         <article class="post">
                             <h2>${item.title.rendered}</h2>
                             <p>${item.content.rendered.split('.')[0]}.</p>
+                            <img src="${thumbnailUrl}" alt="${item.title.rendered}">
                         </article>`;
 				})
 				.join('');
@@ -50,23 +53,18 @@ async function getSocialLinks(menu) {
 
 async function getHomeContent() {
 	const content = await getContent(API_ENDPOINTS.getHomepageContent, 'Home');
-	console.log('Home content:', content);
 	return content;
 }
 
 async function getBlogContent(categoryName) {
-	const endpoint = API_ENDPOINTS.getAllBlogPosts + categoryName;
-	console.log('Blog endpoint:', endpoint);
+	const endpoint = API_ENDPOINTS.getAllBlogPosts + categoryName + '&_embed';
 	const content = await getContent(endpoint, 'Blog');
-	console.log('Blog content:', content);
 	return content;
 }
 
 async function getPortfolioContent(categoryName) {
-	const endpoint = API_ENDPOINTS.getAllPortfolioPosts + categoryName;
-	console.log('Portfolio endpoint:', endpoint);
+	const endpoint = API_ENDPOINTS.getAllPortfolioPosts + categoryName + '&_embed';
 	const content = await getContent(endpoint, 'Portfolio');
-	console.log('Portfolio content:', content);
 	return content;
 }
 
