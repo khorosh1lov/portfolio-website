@@ -36,6 +36,16 @@ const createFooterTemplate = () => {
       <div class="footer-container">
         <div class="footer-wrapper">
           <p>© ${currentYear} Alexander Khoroshilov</p>
+          <div class="profile-links">
+            <a href="https://www.linkedin.com/in/khorosh1lov/" rel="noopener"
+              target="_blank">
+                <i class="fa-brands fa-linkedin icon"></i>
+              </a>
+              <a href="https://github.com/khorosh1lov" rel="noopener"
+              target="_blank">
+                <i class="fa-brands fa-github icon"></i>
+              </a>
+          </div>
         </div>
         <button class="menu-toggle" id="menu-opener">
             <i class="fa-solid fa-bars"></i>

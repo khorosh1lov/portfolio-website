@@ -93,13 +93,18 @@ footer {
     }
 
     .footer-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 $m-gap;
-        color: $white;
+        width: 100%;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 20px;
 
-
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: $white;
+        }
+        
         @media (max-width: $tablet-size) {
             justify-content: space-between;
         }
@@ -110,6 +115,16 @@ footer {
 
             @media (max-width: $tablet-size) {
                 display: none;
+            }
+        }
+
+        .profile-links a {
+            color: $white;
+            text-decoration: none;
+
+            i {
+                font-size: 2rem;
+                padding-left: 1.5rem;
             }
         }
     }
