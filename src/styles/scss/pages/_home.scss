@@ -38,6 +38,7 @@
   height: auto;
   border: 3px solid $black;
   border-radius: 49% 50% 32% 67%/73% 60% 48% 39%;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   position: relative;
   object-fit: cover;
   margin-left: $xl-gap;

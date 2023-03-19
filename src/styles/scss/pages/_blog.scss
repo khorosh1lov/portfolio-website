@@ -1,12 +1,13 @@
 #posts {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: $m-gap;
 
     .post {
         display: flex;
         padding: 0 0 $m-gap;
-        width: 48.933333%;
+        width: 31.90%;
 
         @media (max-width: $tablet-size) {
             width: 100%;
