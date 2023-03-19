@@ -33,7 +33,7 @@
   }
 }
 
-.page-wrapper img {
+.profile-wrapper img {
   width: 300px;
   height: auto;
   border: 3px solid $black;
@@ -41,6 +41,8 @@
   position: relative;
   object-fit: cover;
   margin-left: $xl-gap;
+  -webkit-animation: morph 8s ease-in-out infinite;
+  animation: morph 8s ease-in-out infinite;
 
   @media (max-width: $tablet-size) {
     order: 1;
@@ -124,8 +126,6 @@
   color: $blue;
 }
 
-
-
 .scroll-down {
   display: inline-block;
   font-size: 2 * $base-font-size;
@@ -147,6 +147,7 @@
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   50%,
@@ -161,5 +162,30 @@
 
   60% {
     transform: translateX(-50%) translateY(-15px);
+  }
+}
+
+#about-me > section {
+    padding: 0 0 $m-gap;
+
+    div {
+      margin-bottom: $m-gap;
+    }
+
+    h2, h3, h4 {
+      margin-top: 0;
+      margin-bottom: $m-gap;
+    }
+
+    a {
+      margin: $m-gap 0;
+    }
+  }
+
+.skills-list,
+.proficiencies-list {
+  li {
+    padding-left: 1rem;
+    text-indent: -0.7rem;
   }
 }

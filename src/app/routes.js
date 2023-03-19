@@ -1,12 +1,12 @@
 const routes = [
 	{
-		url: '/blog',
-		title: 'Blog',
+		url: '/portfolio',
+		title: 'Portfolio',
 		target: '',
 	},
 	{
-		url: '/portfolio',
-		title: 'Portfolio',
+		url: '/blog',
+		title: 'Blog',
 		target: '',
 	},
 	{

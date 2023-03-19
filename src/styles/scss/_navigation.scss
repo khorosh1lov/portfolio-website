@@ -57,6 +57,10 @@
         font-size: 2.5 * $base-font-size;
        }
     }
+
+    a:last-child {
+      padding-right: 0;
+    }
   }
 
   .social_link {
