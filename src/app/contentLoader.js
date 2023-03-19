@@ -13,9 +13,11 @@ async function getContent(endpoint, headerTitle) {
 
 					return `
                         <article class="post">
-                            <h2>${item.title.rendered}</h2>
-                            <p>${item.content.rendered.split('.')[0]}.</p>
-                            <img src="${thumbnailUrl}" alt="${item.title.rendered}">
+                            <a href="${item.link.replace('localhost/portfolio/backend', 'localhost/portfolio/blog')}" target="_blank">
+                                <h2>${item.title.rendered}</h2>
+                                <p>${item.content.rendered.split('.')[0]}.</p>
+                                <img src="${thumbnailUrl}" alt="${item.title.rendered}">
+                            </a>
                         </article>`;
 				})
 				.join('');
