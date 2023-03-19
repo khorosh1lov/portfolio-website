@@ -12,25 +12,41 @@ async function getContent(endpoint, headerTitle) {
 					const thumbnailUrl = item._embedded['wp:featuredmedia'] ? item._embedded['wp:featuredmedia'][0].source_url : '';
 
 					return `
-                        <article class="post">
-                            <a href="${item.link.replace('localhost/portfolio/backend', 'localhost/portfolio/blog')}" target="_blank">
-                                <h2>${item.title.rendered}</h2>
-                                <p>${item.content.rendered.split('.')[0]}.</p>
-                                <img src="${thumbnailUrl}" alt="${item.title.rendered}">
-                            </a>
-                        </article>`;
+						<article class="post">
+						<a href="/blog/${item.slug}" data-slug="${item.slug}" class="post-link">
+							<h2>${item.title.rendered}</h2>
+							<p>${item.content.rendered.split('.')[0]}.</p>
+							<img src="${thumbnailUrl}" alt="${item.title.rendered}">
+						</a>
+						</article>`;
 				})
 				.join('');
 
-			return `
-                <h1>${headerTitle}</h1>
-                <section id="posts">
-                    ${posts}
-                </section>`;
+			const content = `
+				<h1>${headerTitle}</h1>
+				<section id="posts">
+				${posts}
+				</section>`;
+
+			// Attach click event listeners to post links
+			const tempDiv = document.createElement('div');
+			tempDiv.innerHTML = content.trim();
+			const postLinks = tempDiv.querySelectorAll('.post-link');
+
+			postLinks.forEach((postLink) => {
+				postLink.addEventListener('click', (event) => {
+					event.preventDefault();
+					const slug = postLink.dataset.slug;
+					router.loadRoute(`/blog/${slug}`);
+					history.pushState(null, null, `/blog/${slug}`);
+				});
+			});
+
+			return content;
 		} else {
 			return `
-                <h1>${data.title.rendered}</h1>
-                ${data.content.rendered}`;
+        <h1>${data.title.rendered}</h1>
+        ${data.content.rendered}`;
 		}
 	} catch (error) {
 		console.error('Data receiving error:', error);
@@ -70,5 +86,11 @@ async function getPortfolioContent(categoryName) {
 	return content;
 }
 
+async function getSingleBlogContent(slug) {
+	const endpoint = API_ENDPOINTS.getSingleBlogPostBySlug + slug + '&_embed';
+	const content = await getContent(endpoint, '');
+	return content;
+}
 
-export { getHomeContent, getBlogContent, getPortfolioContent, getSocialLinks };
+
+export { getHomeContent, getBlogContent, getPortfolioContent, getSocialLinks, getSingleBlogContent };
