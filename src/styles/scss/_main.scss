@@ -1,8 +1,8 @@
 main {
-  padding-top: $xl-gap * 2;
+  padding: $xl-gap * 2 0;
 
   @media (max-width: $tablet-size), (max-width: $mobile-size) {
-    padding-top: $xl-gap * 3;
+    padding: $xl-gap * 3 0;
   }
 
   @include responsive-typography;

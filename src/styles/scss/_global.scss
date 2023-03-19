@@ -42,6 +42,16 @@ h1 {
   color: $fonts-color;
 }
 
+h2 {
+  font-size: 2 * $base-font-size;
+  line-height: 1.75 * $line-height-ratio * $base-font-size;
+}
+
+h3 {
+  font-size: 1.5 * $base-font-size;
+  line-height: 1.25 * $line-height-ratio * $base-font-size;
+}
+
 ul, ol {
   list-style: none;
   margin: 0;

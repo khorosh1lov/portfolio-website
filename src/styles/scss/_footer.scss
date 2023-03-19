@@ -1,3 +1,84 @@
+.contacts {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #ffffff;
+
+    .contacts-container {
+        width: 100%;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        
+        .contact-title {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: flex-start;
+
+            .contact-title-text {
+                margin-top: 0;
+                margin-bottom: $s-gap;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: $blue;
+                font-weight: $fonts-weight-bold;
+            }
+
+            .contact-title-cta {
+                margin-top: 0;
+                margin-bottom: $m-gap;
+            }
+        }
+        .contact-icons {
+            display: flex;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            gap: 2 * $xl-gap;
+
+            .contact-icon-box {
+                align-items: center;
+                display: flex;
+                gap: 1.5rem;
+
+                span {
+                    padding: 1rem 0;
+
+                    i {
+                        font-size: 3rem;
+                        color: $blue;
+                    }
+                }
+
+                .contact-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+
+                    h3, p {
+                        margin: 0;
+                    }
+
+                    p, a {
+                        color: $grey;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer {
     position: relative;
     width: 100%;

@@ -112,9 +112,19 @@
   color: #61dbfb;
 }
 
-.icon-php {
+.icon-php,
+.icon-lin,
+.icon-git {
   color: $black;
+  transition: color 0.3s ease-in-out;
 }
+
+.icon-lin:hover,
+.icon-git:hover {
+  color: $blue;
+}
+
+
 
 .scroll-down {
   display: inline-block;
@@ -131,7 +141,7 @@
     color: #007bff;
   }
 
-  @include responsive-typography;
+  //@include responsive-typography;
 }
 
 @keyframes bounce {
