@@ -1,4 +1,4 @@
-import { createPageStructure, getPageWrapper } from '../../app/components/PageBuilder.js';
+import { createPageStructure, getPageWrapper } from '../../app/pageBuilder.js';
 
 import { getPortfolioContent } from '../../app/contentLoader.js';
 import styles from '../../styles/styles.scss';

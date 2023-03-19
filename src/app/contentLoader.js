@@ -1,38 +1,23 @@
+// contentLoader.js
+
 import API_ENDPOINTS from './apiEndpoints.js';
 import axios from 'axios';
+import { blogTemplate } from '../app/components/Blog.js';
+import { portfolioTemplate } from '../app/components/Portfolio.js';
 
-async function getContent(endpoint, headerTitle) {
+async function getContent(endpoint, headerTitle, templateFn, type = '') {
 	try {
 		const response = await axios.get(endpoint);
 		const data = response.data;
 
 		if (Array.isArray(data)) {
-			const posts = data
-				.map((item) => {
-					const thumbnailUrl = item._embedded['wp:featuredmedia'] ? item._embedded['wp:featuredmedia'][0].source_url : '';
-
-					return `
-						<article class="post">
-							<div class="card">
-								<a href="/blog/${item.slug}" data-slug="${item.slug}" class="post-link">
-									<div class="card-image">
-										<img src="${thumbnailUrl}" alt="${item.title.rendered}">
-									</div>
-									<div class="card-content">
-										<h2>${item.title.rendered}</h2>
-										<i>${item.content.rendered.split('.')[0]}.</i>
-									</div>
-								</a>
-							</div>
-						</article>`;
-				})
-				.join('');
+			const posts = data.map(templateFn).join('');
 
 			const content = `
-				<h1>${headerTitle}</h1>
-				<section id="posts">
-				${posts}
-				</section>`;
+        <h1>${headerTitle}</h1>
+        <section id="${type}">
+        ${posts}
+        </section>`;
 
 			return content;
 		}
@@ -49,13 +34,13 @@ async function getHomeContent() {
 
 async function getBlogContent(categoryName) {
 	const endpoint = API_ENDPOINTS.getAllBlogPosts + categoryName + '&_embed';
-	const content = await getContent(endpoint, 'Blog');
+	const content = await getContent(endpoint, 'Blog', blogTemplate, 'posts');
 	return content;
 }
 
 async function getPortfolioContent(categoryName) {
 	const endpoint = API_ENDPOINTS.getAllPortfolioPosts + categoryName + '&_embed';
-	const content = await getContent(endpoint, 'Portfolio');
+	const content = await getContent(endpoint, 'Portfolio', portfolioTemplate, 'portfolio');
 	return content;
 }
 

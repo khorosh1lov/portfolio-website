@@ -1,4 +1,4 @@
-import { createPageStructure, getPageWrapper } from '../../app/components/PageBuilder.js';
+import { createPageStructure, getPageWrapper } from '../../app/pageBuilder.js';
 
 import { MEDIUM_URL } from '../../app/apiEndpoints.js';
 import { getBlogContent } from '../../app/contentLoader.js';
