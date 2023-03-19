@@ -42,17 +42,6 @@ async function getContent(endpoint, headerTitle) {
 	}
 }
 
-
-async function getMenu(endpoint) {
-	try {
-		const response = await axios.get(endpoint);
-		return response.data;
-	} catch (error) {
-		console.error('Data receiving error:', error);
-		return [];
-	}
-}
-
 async function getHomeContent() {
 	const content = await getContent(API_ENDPOINTS.getHomepageContent, 'Home');
 	return content;
