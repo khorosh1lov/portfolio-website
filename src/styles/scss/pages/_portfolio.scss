@@ -1,6 +1,100 @@
+// portfolio.scss
 #portfolio {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: $m-gap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $xl-gap;
+
+  .project {
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .card {
+      display: flex;
+      flex-direction: row;
+      gap: $m-gap;
+      padding: $m-gap;
+      background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+
+      .card-image {
+        flex: 1;
+        width: 50%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 0.5rem;
+        filter: contrast(80%);              overflow: hidden;
+        position: relative;
+        transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .card-content {
+        flex: 1;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: $m-gap;
+
+            a {
+                transition: color 0.3s ease-in-out;
+            }
+            a:hover {
+                color: #0078f5;
+            }
+
+            .link-icon {
+                font-size: 1.5rem;
+            }
+        }
+
+        h2 {
+          margin-bottom: 1rem;
+            margin-top: 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: $grey;
+            margin-bottom: 1rem;
+            margin-top: 0;
+            font-size: 1rem;
+            text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet-size) {
+  #portfolio {
+    .project {
+      .card {
+        flex-direction: column;
+
+        .card-image {
+          width: 100%;
+        }
+
+        .card-content {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
