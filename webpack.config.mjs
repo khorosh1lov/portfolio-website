@@ -15,9 +15,12 @@ const config = {
 		portfolio: './src/pages/portfolio/portfolio.js',
 	},
 	output: {
-		filename: '[name].bundle.js',
+		filename: (pathData) => {
+			return pathData.chunk.name === 'index' ? '[name].bundle.js' : '[name]/[name].bundle.js';
+		},
 		path: path.resolve(__dirname, 'dist'),
 		clean: true,
+		publicPath: '/',
 	},
 	watch: true,
 	module: {
@@ -47,13 +50,13 @@ const config = {
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/pages/blog/blog.html',
-			filename: 'blog.html',
+			filename: 'blog/index.html',
 			chunks: ['blog'],
 			inject: 'body',
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/pages/portfolio/portfolio.html',
-			filename: 'portfolio.html',
+			filename: 'portfolio/index.html',
 			chunks: ['portfolio'],
 			inject: 'body',
 		}),
