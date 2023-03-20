@@ -3,8 +3,8 @@
  * @constant BASE_URL
  * @type {string}
  */
-const BASE_URL = 'http://localhost/portfolio/backend/wp-json/wp/v2/';
-const MENU_URL = 'http://localhost/portfolio/backend/wp-json/custom/menu/';
+const BASE_URL = 'https://webeat.dev/backend/wp-json/wp/v2/';
+const MENU_URL = 'https://webeat.dev/backend/wp-json/custom/menu/';
 export const MEDIUM_URL = 'https://khoroshilov-alex.medium.com/';
 export const GITHUB_URL = 'https://github.com/khorosh1lov/';
 export const SUBDOMAIN_URL = '.webeat.dev/';
