@@ -1,4 +1,4 @@
-import { SUBDOMAIN_URL } from '../../app/apiEndpoints.js';
+import { GITHUB_URL, SUBDOMAIN_URL } from '../../app/apiEndpoints.js';
 
 export function portfolioTemplate(item) {
 	const thumbnailUrl = item._embedded['wp:featuredmedia'] ? item._embedded['wp:featuredmedia'][0].source_url : '';
@@ -13,7 +13,7 @@ export function portfolioTemplate(item) {
                 <h2>${item.title.rendered}</h2>
                 <p>${item.content.rendered.split('.')[0]}.</p>
                 <div class="links">
-                    <a target="_blank" href="#" rel="noreferrer">
+                    <a target="_blank" href="${GITHUB_URL}${item.slug}" data-slug="${item.slug}" rel="noreferrer">
                         Code <i class="fa-brands fa-github link-icon"></i>
                     </a>
                     <a target="_blank" href="https://${item.slug}${SUBDOMAIN_URL}" data-slug="${item.slug}" rel="noreferrer">

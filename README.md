@@ -4,8 +4,8 @@ This JavaScript application serves as a personal portfolio website for Alexander
 
 ## Features
 
-- Modern and responsive user interface
-- JavaScript-driven frontend
+- Modern and responsive user interface (Flexbox, SCSS)
+- JavaScript-driven frontend (Vanilla JS, Webpack)
 - Integration with WordPress REST API for content management
 - Dynamic content loading for efficient browsing
 
