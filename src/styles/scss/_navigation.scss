@@ -10,7 +10,6 @@
     bottom: 0;
     flex-direction: column;
     justify-content: center;
-    background-color: $white;
     z-index: 1000;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
@@ -27,15 +26,10 @@
 
    a {
     text-decoration: none;
-    color: $black;
     font-size: $base-font-size;
     font-weight: $fonts-weight-bold;
     padding: $s-gap $m-gap;
     transition: color 0.3s ease-in-out;
-
-    &:hover {
-      color: $blue;
-    }
 
     @include responsive-typography;
   }
@@ -79,6 +73,16 @@
        }
     }
   }
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: $tablet-size) {
+      flex-direction: column;
+    }
 }
 
 .menu__close {

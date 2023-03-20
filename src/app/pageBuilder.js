@@ -1,4 +1,4 @@
-import { headerScrollBehavior, initMenu, initSmoothScroll } from './utils.js';
+import { getStoredTheme, headerScrollBehavior, initMenu, initSmoothScroll, switchTheme } from './utils.js';
 
 import createFooterTemplate from './components/Footer.js';
 import createHeaderTemplate from './components/Header.js';
@@ -14,10 +14,27 @@ export async function createPageStructure() {
 	initMenu();
 	initSmoothScroll();
 	headerScrollBehavior();
+
+	const storedTheme = getStoredTheme();
+	if (storedTheme) {
+		switchTheme(storedTheme);
+	}
+
+	const themeSwitcher = document.querySelector('.toggler__input');
+	if (storedTheme === 'dark') {
+		themeSwitcher.checked = true;
+	} else {
+		themeSwitcher.checked = false;
+	}
+
+	themeSwitcher.addEventListener('change', (e) => {
+		const selectedTheme = e.target.checked ? 'dark' : 'light';
+		switchTheme(selectedTheme);
+	});
 }
 
 export function getPageWrapper() {
-  const page = document.querySelector('#page');
-  const wrapper = page.querySelector('.page-wrapper');
+	const page = document.querySelector('#page');
+	const wrapper = page.querySelector('.page-wrapper');
 	return wrapper;
 }

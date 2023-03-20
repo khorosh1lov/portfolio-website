@@ -10,7 +10,7 @@ export function blogTemplate(item) {
                 </div> 
                 <div class="card-content"> 
                     <h2>${item.title.rendered}</h2> 
-                    <i>${item.content.rendered.split('.')[0]}.</i> 
+                    <p>${item.content.rendered.split('.')[0]}.</p> 
                 </div> 
             </a> 
         </div> 

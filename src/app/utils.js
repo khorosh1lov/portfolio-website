@@ -84,3 +84,12 @@ export const headerScrollBehavior = () => {
 	});
 };
 
+export const switchTheme = (theme) => {
+	const body = document.querySelector('body');
+	body.setAttribute('data-theme', theme);
+	localStorage.setItem('theme', theme);
+};
+
+export const getStoredTheme = () => {
+	return localStorage.getItem('theme');
+};

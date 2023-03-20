@@ -30,15 +30,12 @@ body {
   font-size: $base-font-size;
   line-height: $line-height-ratio * $base-font-size;
   font-weight: $fonts-weight;
-  color: $fonts-color;
-  background: $background-color;
 }
 
 h1 {
   font-size: 3 * $base-font-size;
   line-height: 2 * $line-height-ratio * $base-font-size;
   font-weight: $fonts-weight-bold;
-  color: $fonts-color;
 }
 
 h2 {

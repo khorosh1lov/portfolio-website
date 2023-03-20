@@ -1,11 +1,14 @@
 // Import components
 @import './scss/global';
+@import './scss/light-theme';
+@import './scss/dark-theme';
 @import "./scss/fontawesome/fontawesome.scss";
 @import "./scss/fontawesome/solid.scss";
 @import "./scss/fontawesome/brands.scss";
 @import './scss/fonts';
 @import './scss/header';
 @import './scss/navigation';
+@import './scss/toggler';
 @import './scss/main';
 @import './scss/footer';
 

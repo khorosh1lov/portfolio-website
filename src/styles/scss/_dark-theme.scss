@@ -1,0 +1,72 @@
+body[data-theme='dark'] {
+  color: $white;
+  background: $black;
+
+  h1 {
+      color: $white;
+  }
+
+  header {
+    background-color: lighten($color: $black, $amount: 5);
+
+    .logo {
+      color: $white;
+    }
+  }
+
+  .menu__links a {
+    color: $white;
+    
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .icon-php,
+  .icon-lin,
+  .icon-git {
+    color: $white;
+
+    &:hover,
+    &:hover {
+      color: $blue;
+    }
+  }
+
+#portfolio, #posts {
+  .card {
+    background-color: lighten($color: $black, $amount: 5);
+    .card-image {
+      img {
+        filter: grayscale(20%);
+      }
+    }
+
+    .card-content {
+      p {
+        color: lighten($color: $grey, $amount: 40);
+      }
+    }
+  }
+}
+
+.menu__wrapper {
+  @media (max-width: $tablet-size) {
+    background-color: $black;
+  }
+}
+
+  .tech-stack hr, .contacts {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+  } 
+
+  footer {
+    @media (max-width: $tablet-size) {
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  } 
+
+  .contact {
+    background-color: $black;
+  }
+}

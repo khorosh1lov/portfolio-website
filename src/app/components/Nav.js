@@ -13,6 +13,16 @@ const createNavTemplate = async (pages) => {
                 <ul class="menu__links">
                      ${pages.map((page) => `<li class="pages_link"><a href="${page.url}" target="${page.target}" title="${page.title}">${page.title}</a></li>`).join('')}
                 </ul>
+                <div class="theme-switcher">
+                    <label class="toggler">
+                        <input type="checkbox" class="toggler__input" />
+                        <div class="toggler__state">
+                            <span class="toggler__label">
+                                Dark Mode
+                            </span>
+                        </div>
+                    </label>
+                </div>
             </nav>
         </div>
     `;

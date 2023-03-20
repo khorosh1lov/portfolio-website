@@ -1,0 +1,109 @@
+.theme-switcher {
+    @media (max-width: $tablet-size) {
+      position: absolute;
+      bottom: $xl-gap;
+    }
+}
+.toggler {
+    display: inline-block;
+
+    &__input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+
+        cursor: pointer;
+        overflow: visible;
+    }
+
+    &__state {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            z-index: 0;
+
+            width: 3.25rem;
+            height: 1.75rem;
+
+            border: 1px solid $grey;
+            border-radius: 16px;
+            box-sizing: border-box;
+            
+            transition: all .5s ease;
+        }
+    }
+
+    &__label {
+        display: inline-block;
+        font-size: 1.25rem;
+        text-indent: 4rem !important;
+        line-height: 1.75rem;
+        text-decoration: none;
+        
+        color: $grey;
+
+        &::before, 
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+
+            display: block;
+            width: 1.75rem;
+            height: 1.75rem;
+
+            border: 1px solid transparent;
+            border-radius: 50%;
+            box-sizing: border-box;
+
+            transition: left .5s ease;
+            transform: scale(.8);
+        }
+        &::after {
+            background-color: $grey !important;
+        }
+    }
+
+    &__input:focus ~ &__state &__label {
+        text-decoration: none;
+    }
+
+    &__input:checked ~ &__state::before {
+        background-color: $blue;
+        border-color: $blue;
+    }
+    &__input:checked ~ &__state &__label::before {
+        opacity: 0;
+    }
+    &__input:checked ~ &__state &__label::after {
+        background-color: $white !important;
+        left: 1.5rem;
+    }
+
+    &__input:disabled ~ &__state {
+        cursor: not-allowed;
+    }
+    &__input:disabled ~ &__state::before {
+        background-color: $grey;
+    }
+    &__input:disabled ~ &__state &__label {
+        opacity: .5;
+    }
+    &__input:disabled ~ &__state &__label::before, 
+    &__input:disabled ~ &__state &__label::after {
+        background-color: $grey !important;
+    } 
+}
