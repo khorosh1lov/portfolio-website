@@ -10,6 +10,8 @@ async function getContent(endpoint, headerTitle, templateFn, type = '') {
 		const response = await axios.get(endpoint);
 		const data = response.data;
 
+		console.log(data);
+
 		if (Array.isArray(data)) {
 			const posts = data.map(templateFn).join('');
 
