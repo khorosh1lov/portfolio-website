@@ -73,6 +73,8 @@ export const headerScrollBehavior = () => {
 
 		if (currentScrollTop < lastScrollTop || currentScrollTop > lastScrollTop) {
 			hideHeader();
+		} else {
+			showHeader();
 		}
 
 		lastScrollTop = currentScrollTop;
@@ -92,4 +94,18 @@ export const switchTheme = (theme) => {
 
 export const getStoredTheme = () => {
 	return localStorage.getItem('theme');
+};
+
+export const applyThemeByTime = () => {
+	const currentTime = new Date();
+	const currentHour = currentTime.getHours();
+	const themeSwitcher = document.querySelector('.toggler__input');
+
+	if (currentHour >= 20 || currentHour < 7) {
+		switchTheme('dark');
+		themeSwitcher.checked = true;
+	} else {
+		switchTheme('light');
+		themeSwitcher.checked = false;
+	}
 };

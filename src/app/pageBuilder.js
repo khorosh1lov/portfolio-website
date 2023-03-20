@@ -1,4 +1,4 @@
-import { getStoredTheme, headerScrollBehavior, initMenu, initSmoothScroll, switchTheme } from './utils.js';
+import { applyThemeByTime, getStoredTheme, headerScrollBehavior, initMenu, initSmoothScroll, switchTheme } from './utils.js';
 
 import createFooterTemplate from './components/Footer.js';
 import createHeaderTemplate from './components/Header.js';
@@ -18,6 +18,8 @@ export async function createPageStructure() {
 	const storedTheme = getStoredTheme();
 	if (storedTheme) {
 		switchTheme(storedTheme);
+	} else {
+		applyThemeByTime();
 	}
 
 	const themeSwitcher = document.querySelector('.toggler__input');
