@@ -13,7 +13,7 @@ export async function createPageStructure() {
 
 	initMenu();
 	initSmoothScroll();
-	//headerScrollBehavior();
+	headerScrollBehavior();
 }
 
 export function getPageWrapper() {

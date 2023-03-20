@@ -34,7 +34,6 @@ body {
   background: $background-color;
 }
 
-
 h1 {
   font-size: 3 * $base-font-size;
   line-height: 2 * $line-height-ratio * $base-font-size;
@@ -56,4 +55,9 @@ ul, ol {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
 }

@@ -97,9 +97,14 @@
   }
 }
 
-
 .open {
   transform: translateX(0%);
   visibility: visible;
   opacity: 1;
+}
+
+.close {
+  transform: translateX(-100%);
+  visibility: hidden;
+  opacity: 0;
 }
