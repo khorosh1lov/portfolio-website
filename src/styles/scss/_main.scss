@@ -17,4 +17,49 @@ main {
     @media (max-width: $tablet-size), (max-width: $mobile-size) {
       padding: 0 $s-gap;
     }
+
+    .preview, .current-project {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: $m-gap;
+      margin: 40px 0;
+      gap: $m-gap;
+      border-radius: 0.5rem;
+      box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    }
+
+    hr {
+      margin: $m-gap 0;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        color: $white;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+
+    .page-header {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .page-preview-text {
+        font-size: 1.1rem;
+        
+        p {
+          margin: 0;
+        }
+    }
 }

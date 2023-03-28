@@ -14,6 +14,12 @@ body[data-theme='dark'] {
     }
   }
 
+  .page-wrapper {
+    .preview, .current-project {
+      background-color: lighten($color: $black, $amount: 5);
+    }
+  }
+
   .menu__links a {
     color: $white;
     

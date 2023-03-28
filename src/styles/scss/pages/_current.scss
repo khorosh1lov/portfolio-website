@@ -1,0 +1,35 @@
+.current-project {
+    width: 100%;
+    box-sizing: border-box;
+
+    .current-project-header {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }
+
+    pre {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: #f3f3f3;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+
+    pre::before {
+        content: "Code Listing:";
+        display: block;
+        font-weight: bold;
+        font-size: 0.9em;
+        padding: 1rem;
+        margin-bottom: 0.5em;
+        border-bottom: 1px solid #ddd;
+    }
+
+    code {
+        display: block;
+        white-space: pre-wrap;
+        /* Заменить на 'pre' если не хотите переноса строк */
+    }
+}

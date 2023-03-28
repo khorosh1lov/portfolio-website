@@ -1,6 +1,6 @@
 import { createPageStructure, getPageWrapper } from '../../app/pageBuilder.js';
+import { getPortfolioContent, initLoadMoreButton } from '../../app/contentLoader.js';
 
-import { getPortfolioContent } from '../../app/contentLoader.js';
 import styles from '../../styles/styles.scss';
 
 async function initPortfolioPage() {
@@ -10,6 +10,9 @@ async function initPortfolioPage() {
 
 	const content = await getPortfolioContent('portfolio');
 	wrapper.innerHTML += content;
+
+	const container = document.querySelector('#portfolio');
+	initLoadMoreButton(container);
 }
 
 initPortfolioPage();
